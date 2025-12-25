@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8">
+    <title>The Royal House Restaurant</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<header class="main-header">
+    <div class="logo"><svg class="crown-icon" viewBox="0 0 64 64">
+        <path d="M8 48h48l-4-28-12 12-8-20-8 20-12-12z"/>
+    </svg>
+    <span class="brand">The Royal House</span></div>
+    <nav>
+        <a href="index.html">Home</a>
+        <a href="menu.html">Menu</a>
+        <a href="about.html">About</a>
+        <a href="contact.html">Contact</a>
+    </nav>
+</header>
+
+
+
+<section class="hero">
+    <div class="hero-content">
+        <h1>Delicious Nepali & Continental Food</h1>
+        
+        <h1>Royal House</h1>
+        <p>Taste Fit for Royalty</p>
+        <p>Fresh • Hygienic • Affordable</p>
+
+        <div class="cta-buttons">
+            <a href="menu.html" class="btn primary">View Menu</a>
+            <a href="contact.html" class="btn secondary">Order Now</a>
+        </div>
+    </div>
+</section>
+
+
+
+<section class="intro">
+    <h2>Welcome to The Royal House</h2>
+    <p>
+        We serve high-quality food made with fresh ingredients in a warm and welcoming environment.
+    </p>
+</section>
+
+<footer>
+    <p>© 2025 The Royal House Restaurant</p>
+</footer>
+
+</body>
+<script>
+    const images = [
+        "images/slide1.jpg", 
+        "images/slide2.jpg",
+        "images/slide3.jpg"
+    ];
+
+    let index = 0;
+    const hero = document.querySelector(".hero");
+
+    function changeBackground() {
+        hero.style.backgroundImage = `url(${images[index]})`;
+        index = (index + 1) % images.length;
+    }
+
+    changeBackground(); // first image
+    setInterval(changeBackground, 3000); // change every 3 seconds
+</script>
+
+</html>
