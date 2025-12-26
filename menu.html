@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8">
+    <title>Menu | The Royal House</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<header class="main-header">
+    <div class="logo">
+        <svg class="crown-icon" viewBox="0 0 64 64">
+            <path d="M8 48h48l-4-28-12 12-8-20-8 20-12-12z"/>
+        </svg>
+        <span class="brand">The Royal House</span>
+    </div>
+    <nav>
+        <a href="index.html">Home</a>
+        <a href="menu.html">Menu</a>
+        <a href="about.html">About</a>
+        <a href="contact.html">Contact</a>
+    </nav>
+</header>
+
+<!-- MENU HERO SECTION WITH BACKGROUND -->
+<section class="menu-hero">
+    <div class="menu-overlay"></div>
+    <div class="menu-content">
+
+        <h2 class="page-title" style="color: #d4af37;">Our Menu</h2>
+
+        <!-- Filter Buttons 
+        <div class="menu-filters">
+            <button onclick="filterMenu('all')">All</button>
+            <button onclick="filterMenu('veg')">🌱 Veg</button>
+            <button onclick="filterMenu('nonveg')">🔴 Non-Veg</button>
+            <button onclick="filterMenu('drinks')">🥤 Drinks</button>
+        </div>
+        -->
+
+        <!-- Menu Items -->
+        <section class="simple-menu">
+
+            <div class="menu-card veg">
+                <img src="images/veg-mom.jpg" alt="Veg Momo">
+                <div class="menu-info">
+                    <div class="menu-title">
+                        <span class="type veg">🌱</span>
+                        <span class="name">Veg Momo</span>
+                        <span class="dots"></span>
+                        <span class="price">Rs. 150</span>
+                    </div>
+                    <p>Steamed dumplings with fresh vegetables.</p>
+                </div>
+        <button class="order-btn" onclick="addToOrder('Veg Momo', 150)">
+    Add to Order
+</button>
+
+            </div>
+
+            <div class="menu-card nonveg">
+                <img src="images/non-veg.jpg" alt="Non Veg Momo">
+                <div class="menu-info">
+                    <div class="menu-title">
+                        <span class="type nonveg">🔴</span>
+                        <span class="name">Non Veg Momo</span>
+                        <span class="dots"></span>
+                        <span class="price">Rs. 170</span>
+                    </div>
+                    <p>Steamed dumplings with chicken.</p>
+                </div>
+                <button class="order-btn" onclick="addToOrder('Non Veg Momo', 170)">
+    Add to Order
+</button>
+
+            </div>
+
+            <div class="menu-card veg">
+                <img src="images/fried-rice.jpg" alt="Veg Fried Rice">
+                <div class="menu-info">
+                    <div class="menu-title">
+                        <span class="type veg">🌱</span>
+                        <span class="name">Veg Fried Rice</span>
+                        <span class="dots"></span>
+                        <span class="price">Rs. 200</span>
+                    </div>
+                    <p>Stir-fried rice with mixed vegetables.</p>
+                </div>
+                <button class="order-btn" onclick="addToOrder('Veg Fried Rice', 200)">
+    Add to Order
+</button>
+
+            </div>
+
+            <div class="menu-card nonveg">
+                <img src="images/piza.jpg" alt="Piza">
+                <div class="menu-info">
+                    <div class="menu-title">
+                        <span class="type piza">🔴</span>
+                        <span class="name">Piza</span>
+                        <span class="dots"></span>
+                        <span class="price">Rs. 180</span>
+                    </div>
+                    <p>Delicious pizza with cheese and toppings.</p>
+                </div>
+                <button class="order-btn" onclick="addToOrder('Piza', 180)">
+    Add to Order
+</button>
+
+            </div>
+
+            <div class="menu-card drinks">
+                <img src="images/cold-drinks.jpg" alt="Cold Drinks">
+                <div class="menu-info">
+                    <div class="menu-title">
+                        <span class="type drink">🥤</span>
+                        <span class="name">Cold Drinks</span>
+                        <span class="dots"></span>
+                        <span class="price">From Rs. 80</span>
+                    </div>
+                    <p>Chilled soft drinks & beverages.</p>
+                </div>
+                <button class="order-btn" onclick="addToOrder('Cold Drinks', 80)">
+    Add to Order
+</button>
+
+            </div>
+
+        </section>
+
+<!-- ORDER BOX -->
+<div class="order-box">
+    <h3>Your Order</h3>
+    <ul id="order-list"></ul>
+    <p class="total">Total: Rs. <span id="total">0</span></p>
+
+    <!-- CUSTOMER DETAILS -->
+    <div class="customer-info">
+        <input type="text" id="custName" placeholder="Your Name" required>
+        <input type="text" id="custPhone" placeholder="Phone Number" required>
+        <textarea id="custAddress" placeholder="Delivery Address" required></textarea>
+    </div>
+<div class="payment-section">
+    <h4>Select Payment Method</h4>
+
+    <label>
+        <input type="radio" name="payment" value="Cash on Delivery" checked>
+        Cash on Delivery
+    </label>
+
+    <label>
+        <input type="radio" name="payment" value="eSewa">
+        eSewa
+    </label>
+
+    <label>
+        <input type="radio" name="payment" value="Khalti">
+        Khalti
+    </label>
+</div>
+
+    <button class="checkout-btn" onclick="confirmOrder()">Place Order</button>
+    <span class="whatsapp-note" style="margin-left: 25px;">send order via WhatsApp for quick responce</span>
+</div>
+
+<!-- CONFIRMATION POPUP -->
+<div id="confirmPopup" class="popup">
+    <div class="popup-content">
+        <p>Are you sure?</p>
+        <button onclick="sendWhatsAppOrder()">Yes</button>
+        <button onclick="closePopup()">No</button>
+    </div>
+</div>
+
+<!-- PAYMENT QR POPUP -->
+<div id="paymentPopup" class="popup">
+    <div class="popup-content">
+        <h3 id="paymentTitle"></h3>
+        <img id="paymentQR" src="" alt="Payment QR" style="width:220px;margin:15px 0;">
+        <p>After payment, click Continue</p>
+        <button onclick="openWhatsAppAfterPayment()">Continue</button>
+    </div>
+</div>
+
+
+    </div>
+</section>
+
+<footer>
+    <p>© 2025 The Royal House Restaurant</p>
+</footer>
+
+<script>
+let cart = [];
+let total = 0;
+
+function addToOrder(name, price) {
+    const item = cart.find(i => i.name === name);
+    if(item) { item.qty++; } 
+    else { cart.push({name, price, qty:1}); }
+    renderCart();
+}
+
+function changeQty(index, change) {
+    cart[index].qty += change;
+    if(cart[index].qty <=0) { cart.splice(index,1); }
+    renderCart();
+}
+
+function removeItem(index) {
+    cart.splice(index,1);
+    renderCart();
+}
+
+function renderCart() {
+    const list = document.getElementById("order-list");
+    list.innerHTML = "";
+    total = 0;
+
+    cart.forEach((item,index)=>{
+        total += item.price * item.qty;
+        list.innerHTML += `
+            <li class="order-item">
+                <span>${item.name} (Rs.${item.price})</span>
+                <div>
+                    <button class="qty-btn" onclick="changeQty(${index},-1)">-</button>
+                    ${item.qty}
+                    <button class="qty-btn" onclick="changeQty(${index},1)">+</button>
+                    <button class="remove-btn" onclick="removeItem(${index})">Remove</button>
+                </div>
+            </li>
+        `;
+    });
+
+    document.getElementById("total").innerText = total;
+}
+
+// --------------------
+// CONFIRMATION POPUP
+// --------------------
+function confirmOrder() {
+    if(cart.length === 0) { alert("Your cart is empty!"); return; }
+
+    const name = document.getElementById("custName").value.trim();
+    const phone = document.getElementById("custPhone").value.trim();
+    const address = document.getElementById("custAddress").value.trim();
+
+    if(!name || !phone || !address) {
+        alert("Please fill all customer details.");
+        return;
+    }
+
+    document.getElementById("confirmPopup").style.display = "flex";
+}
+
+function closePopup() {
+    document.getElementById("confirmPopup").style.display = "none";
+}
+
+// --------------------
+// SEND WHATSAPP ORDER
+// --------------------
+function sendWhatsAppOrder() {
+    const name = document.getElementById("custName").value.trim();
+    const phone = document.getElementById("custPhone").value.trim();
+    const address = document.getElementById("custAddress").value.trim();
+
+    if (!name || !phone || !address) {
+        alert("Please fill all customer details");
+        return;
+    }
+
+    const payment = document.querySelector('input[name="payment"]:checked').value;
+
+    // 👉 CHECK PAYMENT METHOD
+    if (payment === "eSewa" || payment === "Khalti") {
+        showPaymentPopup(payment);   // show QR popup
+        return;                      // STOP here
+    }
+
+    // 👉 CASH ON DELIVERY
+    openWhatsApp();
+}
+
+function showPaymentPopup(method) {
+    document.getElementById("paymentTitle").innerText =
+        method === "eSewa" ? "Pay via eSewa" : "Pay via Khalti";
+
+    document.getElementById("paymentQR").src =
+        method === "eSewa" ? "images/esewa-qr.jpeg" : "images/khalti-qr.jpeg";
+    closePopup();
+    document.getElementById("paymentPopup").style.display = "flex";
+}
+
+function openWhatsAppAfterPayment() {
+    document.getElementById("paymentPopup").style.display = "none";
+    openWhatsApp();
+}
+
+function openWhatsApp() {
+    let message = `🛒 *Royal House Order*%0A%0A`;
+    message += `👤 Name: ${custName.value}%0A`;
+    message += `📞 Phone: ${custPhone.value}%0A`;
+    message += `🏠 Address: ${custAddress.value}%0A`;
+    message += `💳 Payment: ${document.querySelector('input[name="payment"]:checked').value}%0A%0A`;
+
+    cart.forEach(item => {
+        message += `${item.name} x ${item.qty} = Rs.${item.price * item.qty}%0A`;
+    });
+
+    message += `%0A*Total: Rs.${total}*`;
+
+    window.open(`https://wa.me/9779809458395?text=${message}`, "_blank");
+}
+
+</script>
+
+</body>
+</html>
