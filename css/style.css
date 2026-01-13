@@ -11,6 +11,8 @@ body {
     font-family: 'Poppins', sans-serif;
     background: var(--royal-cream);
     color: #333;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
 }
 
 /* HEADER */
@@ -76,8 +78,10 @@ nav a:hover::after {
     justify-content: center;
     position: relative;
     transition: background-image 1s ease-in-out;
-    /* subtle pan effect (moves background-position left->right) */
     animation: pan 20s ease-in-out infinite;
+    will-change: background-position;
+    transform: translateZ(0);
+    backface-visibility: hidden;
 }
 
 /* Light overlay for text readability */
@@ -97,6 +101,27 @@ nav a:hover::after {
     z-index: 2;
     text-align: center;
     color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    padding: 20px;
+}
+
+.hero-content h1,
+.hero-content h2,
+.hero-content p {
+    margin: 12px 0;
+}
+
+.cta-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    justify-content: center;
+    margin-top: 25px;
+    width: 100%;
 }
 
 
@@ -109,7 +134,10 @@ nav a:hover::after {
     text-decoration: none;
     font-size: 16px;
     margin: 8px;
-    transition: 0.3s;
+    transition: all 0.3s ease;
+    transform: translateZ(0);
+    will-change: transform, box-shadow;
+    display: inline-block;
 }
 
 .primary {
@@ -130,13 +158,25 @@ nav a:hover::after {
 /* INTRO */
 .intro {
     text-align: center;
-    padding: 70px;
+    padding: 70px 30px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
 }
 
 .intro h2 {
     font-family: 'Playfair Display', serif;
     font-size: 32px;
     color: var(--royal-black);
+    margin-bottom: 20px;
+}
+
+.intro p {
+    max-width: 700px;
+    margin: 0 auto;
+    line-height: 1.6;
+    font-size: 16px;
 }
 
 /* MENU */
@@ -144,7 +184,9 @@ nav a:hover::after {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(260px,1fr));
     gap: 30px;
-    padding: 60px;
+    padding: 60px 30px;
+    max-width: 1400px;
+    margin: 0 auto;
 }
 
 .food-card {
@@ -152,8 +194,10 @@ nav a:hover::after {
     border-radius: 18px;
     overflow: hidden;
     box-shadow: 0 10px 30px rgba(0,0,0,0.15);
-    transition: 0.4s;
+    transition: all 0.4s ease;
     text-align: center;
+    transform: translateZ(0);
+    will-change: transform;
 }
 
 .food-card:hover {
@@ -164,7 +208,9 @@ nav a:hover::after {
     width: 100%;
     height: 220px;
     object-fit: cover;
-    transition: 0.4s;
+    transition: transform 0.4s ease;
+    transform: translateZ(0);
+    will-change: transform;
 }
 
 .food-card:hover img {
@@ -772,14 +818,23 @@ nav ul li a {
   .hero {
     height: 60vh;
     padding: 20px;
+    transform: translateZ(0);
   }
 
   .hero-content {
     padding: 20px;
+    width: 100%;
+    box-sizing: border-box;
   }
 
   .hero-content h1 {
     font-size: 24px;
+    line-height: 1.2;
+    margin: 10px 0;
+  }
+
+  .hero-content h2 {
+    font-size: 22px;
     line-height: 1.2;
     margin: 10px 0;
   }
@@ -794,18 +849,24 @@ nav ul li a {
     flex-direction: column;
     gap: 10px;
     margin-top: 15px;
+    align-items: center;
+    width: 100%;
   }
 
   .btn {
-    width: 100%;
+    width: 90%;
+    max-width: 300px;
     padding: 12px 20px;
     font-size: 14px;
-    margin: 5px 0;
+    margin: 5px auto;
+    will-change: auto;
   }
 
   /* Intro Section */
   .intro {
     padding: 40px 20px;
+    width: 100%;
+    box-sizing: border-box;
   }
 
   .intro h2 {
@@ -815,6 +876,7 @@ nav ul li a {
 
   .intro p {
     font-size: 14px;
+    max-width: 100%;
   }
 
   /* Food Grid */
@@ -822,10 +884,13 @@ nav ul li a {
     grid-template-columns: 1fr;
     gap: 20px;
     padding: 20px;
+    max-width: 100%;
+    margin: 0;
   }
 
   .food-card {
     border-radius: 12px;
+    transform: translateZ(0);
   }
 
   .food-card img {
@@ -847,17 +912,25 @@ nav ul li a {
     width: 95%;
     padding: 30px 15px;
     margin: 20px auto;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
   }
 
   .page-content h2 {
     font-size: 22px;
     margin-bottom: 20px;
+    width: 100%;
+    text-align: center;
   }
 
   .page-content h3 {
     font-size: 18px;
     margin-top: 20px;
     margin-bottom: 12px;
+    width: 100%;
+    text-align: center;
   }
 
   .page-content p,
@@ -869,6 +942,7 @@ nav ul li a {
 
   .page-content ul {
     margin-left: 20px;
+    text-align: left;
   }
 
   /* Menu Section */
@@ -1157,5 +1231,47 @@ nav ul li a {
   img {
     max-width: 100%;
     height: auto;
+  }
+}
+
+/* Performance optimizations */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+
+  .hero {
+    animation: none;
+  }
+}
+
+/* GPU acceleration for smooth scrolling */
+@media (max-width: 768px) {
+  .food-card,
+  .menu-card,
+  .btn,
+  .hero-content,
+  .intro {
+    transform: translateZ(0);
+    backface-visibility: hidden;
+    perspective: 1000px;
+  }
+}
+
+/* Smooth scroll behavior */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Optimized transitions */
+@media (max-width: 1024px) {
+  .food-card:hover img {
+    transition-duration: 0.25s;
+  }
+
+  .btn:hover {
+    transition-duration: 0.25s;
   }
 }
