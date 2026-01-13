@@ -593,17 +593,17 @@ img {
 @media (max-width: 768px) {
 
   /* NAVBAR FIX */
-  nav {
+nav {
     padding: 10px 15px;
-  }
+}
 
-  nav ul {
+nav ul {
     flex-wrap: wrap;
     justify-content: center;
     gap: 10px;
-  }
+}
 
-  nav ul li a {
+nav ul li a {
     font-size: 16px;
   }
 
@@ -721,4 +721,441 @@ img {
     font-size: 14px;
   }
 
+}
+
+/* ==============================
+   COMPREHENSIVE MOBILE STYLES
+   ============================== */
+
+/* Extra small devices (< 480px) */
+@media (max-width: 480px) {
+  /* General */
+  body {
+    font-size: 14px;
+  }
+
+  /* Header */
+  .main-header {
+    flex-direction: column;
+    padding: 12px;
+    gap: 12px;
+  }
+
+  .logo {
+    justify-content: center;
+  }
+
+  .crown-icon {
+    width: 32px;
+    height: 32px;
+  }
+
+  .brand {
+    font-size: 20px;
+  }
+
+  nav {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 8px;
+    width: 100%;
+  }
+
+  nav a {
+    margin-left: 0;
+    font-size: 13px;
+    padding: 8px 12px;
+  }
+
+  /* Hero Section */
+  .hero {
+    height: 60vh;
+    padding: 20px;
+  }
+
+  .hero-content {
+    padding: 20px;
+  }
+
+  .hero-content h1 {
+    font-size: 24px;
+    line-height: 1.2;
+    margin: 10px 0;
+  }
+
+  .hero-content p {
+    font-size: 13px;
+    margin: 8px 0;
+  }
+
+  .cta-buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-top: 15px;
+  }
+
+  .btn {
+    width: 100%;
+    padding: 12px 20px;
+    font-size: 14px;
+    margin: 5px 0;
+  }
+
+  /* Intro Section */
+  .intro {
+    padding: 40px 20px;
+  }
+
+  .intro h2 {
+    font-size: 24px;
+    margin-bottom: 15px;
+  }
+
+  .intro p {
+    font-size: 14px;
+  }
+
+  /* Food Grid */
+  .food-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+    padding: 20px;
+  }
+
+  .food-card {
+    border-radius: 12px;
+  }
+
+  .food-card img {
+    height: 180px;
+  }
+
+  .food-card h3 {
+    font-size: 18px;
+    margin: 12px 0 8px;
+  }
+
+  .food-card span {
+    font-size: 14px;
+    margin-bottom: 10px;
+  }
+
+  /* Page Content */
+  .page-content {
+    width: 95%;
+    padding: 30px 15px;
+    margin: 20px auto;
+  }
+
+  .page-content h2 {
+    font-size: 22px;
+    margin-bottom: 20px;
+  }
+
+  .page-content h3 {
+    font-size: 18px;
+    margin-top: 20px;
+    margin-bottom: 12px;
+  }
+
+  .page-content p,
+  .page-content li {
+    font-size: 14px;
+    line-height: 1.6;
+    margin-bottom: 10px;
+  }
+
+  .page-content ul {
+    margin-left: 20px;
+  }
+
+  /* Menu Section */
+  .menu-hero {
+    min-height: 50vh;
+    padding: 40px 20px;
+  }
+
+  .simple-menu {
+    max-width: 100%;
+    margin: 0;
+    padding: 15px;
+  }
+
+  .menu-card {
+    flex-direction: column;
+    gap: 12px;
+    padding: 12px;
+    margin-bottom: 15px;
+  }
+
+  .menu-card img {
+    width: 100%;
+    height: 150px;
+    border-radius: 10px;
+  }
+
+  .menu-info {
+    flex: 1;
+  }
+
+  .menu-title {
+    flex-wrap: wrap;
+    gap: 8px;
+    font-size: 14px;
+  }
+
+  .menu-title .dots {
+    display: none;
+  }
+
+  .menu-title .price {
+    display: block;
+    width: 100%;
+    text-align: right;
+    margin-top: 5px;
+  }
+
+  .menu-info p {
+    font-size: 13px;
+    margin-top: 8px;
+  }
+
+  .order-btn {
+    width: 100%;
+    padding: 10px;
+    font-size: 14px;
+    margin-top: 10px;
+  }
+
+  /* Order Box */
+  .order-box {
+    width: 95%;
+    margin: 20px auto;
+    padding: 20px;
+    max-width: 100%;
+  }
+
+  .order-box h3 {
+    font-size: 18px;
+    margin-bottom: 12px;
+  }
+
+  .order-item {
+    font-size: 13px;
+    margin-bottom: 8px;
+    gap: 10px;
+  }
+
+  .qty-btn {
+    padding: 4px 8px;
+    font-size: 12px;
+  }
+
+  .remove-btn {
+    padding: 4px 8px;
+    font-size: 11px;
+  }
+
+  .checkout-btn {
+    padding: 12px;
+    font-size: 14px;
+  }
+
+  /* Customer Info */
+  .customer-info input,
+  .customer-info textarea {
+    padding: 12px;
+    font-size: 16px;
+    margin-bottom: 10px;
+  }
+
+  .payment-section {
+    margin-top: 15px;
+  }
+
+  .payment-section label {
+    font-size: 14px;
+    margin-bottom: 10px;
+  }
+
+  /* Popup */
+  .popup-content {
+    width: 90%;
+    padding: 20px;
+  }
+
+  .popup-content h3 {
+    font-size: 18px;
+    margin-bottom: 15px;
+  }
+
+  .popup-content button {
+    width: 100%;
+    margin: 8px 0;
+    padding: 10px;
+    font-size: 14px;
+  }
+
+  /* Footer */
+  footer {
+    padding: 15px;
+    font-size: 13px;
+  }
+}
+
+/* Small devices (480px - 768px) */
+@media (min-width: 481px) and (max-width: 768px) {
+  body {
+    font-size: 15px;
+  }
+
+  .main-header {
+    flex-wrap: wrap;
+    padding: 15px 20px;
+  }
+
+  nav {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 15px;
+    margin-top: 15px;
+  }
+
+  nav a {
+    margin-left: 0;
+    font-size: 14px;
+  }
+
+  .hero {
+    height: 65vh;
+  }
+
+  .hero-content h1 {
+    font-size: 28px;
+  }
+
+  .hero-content p {
+    font-size: 14px;
+  }
+
+  .cta-buttons {
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+  }
+
+  .btn {
+    min-width: 250px;
+  }
+
+  .intro {
+    padding: 50px 30px;
+  }
+
+  .intro h2 {
+    font-size: 28px;
+  }
+
+  .page-content {
+    width: 90%;
+    padding: 40px 25px;
+  }
+
+  .food-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 25px;
+    padding: 40px 20px;
+  }
+
+  .page-title {
+    font-size: 28px;
+  }
+
+  .menu-card {
+    flex-direction: column;
+  }
+
+  .menu-card img {
+    width: 100%;
+    height: 180px;
+  }
+
+  .menu-title .dots {
+    display: none;
+  }
+
+  .order-box {
+    width: 90%;
+    max-width: 600px;
+  }
+}
+
+/* Medium devices (769px - 1024px) */
+@media (min-width: 769px) and (max-width: 1024px) {
+  .food-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .page-content {
+    width: 85%;
+  }
+
+  .main-header {
+    padding: 20px 30px;
+  }
+}
+
+/* Tablets in landscape */
+@media (max-width: 768px) and (orientation: landscape) {
+  .hero {
+    height: 60vh;
+    min-height: auto;
+  }
+
+  .menu-hero {
+    min-height: auto;
+    padding: 30px 20px;
+  }
+
+  .hero-content h1 {
+    font-size: 26px;
+  }
+}
+
+/* Touch-friendly adjustments */
+@media (hover: none) and (pointer: coarse) {
+  .btn,
+  .order-btn,
+  .qty-btn,
+  .menu-filters button {
+    padding: 14px 24px;
+    font-size: 16px;
+    min-height: 44px;
+  }
+
+  .btn:active,
+  .order-btn:active {
+    transform: scale(0.98);
+  }
+}
+
+/* Prevent horizontal scroll on mobile */
+@media (max-width: 768px) {
+  html, body {
+    width: 100%;
+    overflow-x: hidden;
+  }
+
+  * {
+    max-width: 100%;
+  }
+
+  img {
+    max-width: 100%;
+    height: auto;
+  }
 }
